@@ -1,0 +1,8 @@
+UPDATE people
+SET name=(
+CASE id WHEN 1 THEN 'KEN'
+        WHEN 2 THEN 'tom'
+        WHEN 3 THEN 'dj'
+END
+)
+WHERE id IN (1,2,3);

@@ -1,0 +1,8 @@
+****> SELECT *   FROM Customers  ORDER BY CustomerID  LIMIT 3;
+
+****> SELECT *   FROM Customers  ORDER BY CustomerID  LIMIT 2,1;
+Explanation:
+When a LIMIT clause contains two numbers, it is interpreted as LIMIT offset,count. So, in this example the query skips two records and returns one.
+
+NOTE:
+The values in LIMIT clauses must be constants; they may not be column values.

@@ -1,0 +1,21 @@
+*** SELECT with DISTINCT
+
+The DISTINCT clause after SELECT eliminates duplicate rows from the result set.
+CREATE TABLE `car` (   `car_id` INT UNSIGNED NOT NULL PRIMARY KEY,`name` VARCHAR(20),`price` DECIMAL(8,2) );
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (1, 'Audi A1', '20000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (2, 'Audi A1', '15000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (3, 'Audi A2', '40000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (4, 'Audi A2', '40000');
+
+SELECT DISTINCT `name`, `price` FROM CAR;
++---------+----------+
+| name    | price    |
++---------+----------+
+| Audi A1 | 20000.00 |
+| Audi A1 | 15000.00 |
+| Audi A2 | 40000.00 |
++---------+----------+
+DISTINCT works across all columns to deliver the results, not individual columns. The latter is often a misconception of new SQL developers.
+In short, it is the distinctness at the row-level of the result set that matters, not distinctness at the column-level. To visualize this, look at "Audi A1" in the above result set.
+For later versions of MySQL, DISTINCT has implications with its use alongside ORDER BY.
+The setting for ONLY_FULL_GROUP_BY comes into play as seen in the following MySQL Manual Page entitled MySQL Handling of GROUP BY.

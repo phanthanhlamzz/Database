@@ -1,0 +1,2 @@
+One can create a database with a default CHARACTER SET and collation. For example:
+CREATE DATABASE Baseball CHARACTER SET utf8 COLLATE utf8_general_ci;

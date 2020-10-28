@@ -1,0 +1,9 @@
+When a table has an AUTO_INCREMENT PRIMARY KEY, normally one does not insert into that column. Instead, specify all the other columns, then ask what the new id was.
+CREATE TABLE t (    id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,    this ...,    that ...,    PRIMARY KEY(id) );
+INSERT INTO t (this, that) VALUES (..., ...);
+SELECT LAST_INSERT_ID() INTO @id;
+INSERT INTO another_table (..., t_id, ...) VALUES (..., @id, ...);
+
+Note that LAST_INSERT_ID() is tied to the session, so even if multiple connections are inserting into the same table, each with get its own id.
+Your client API probably has an alternative way of getting the LAST_INSERT_ID() without actually performing a SELECT
+and handing the value back to the client instead of leaving it in an @variable inside MySQL. Such is usually preferable.

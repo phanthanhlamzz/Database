@@ -1,0 +1,9 @@
+Create a DATABASE. Note that the shortened word SCHEMA can be used as a synonym.
+CREATE DATABASE Baseball; -- creates a database named Baseball
+
+If the database already exists, Error 1007 is returned. To get around this error, try:
+CREATE DATABASE IF NOT EXISTS Baseball;
+CREATE DATABASE IF NOT EXISTS mydb2 CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+One can create a database with a default CHARACTER SET and collation. For example:
+CREATE DATABASE Baseball CHARACTER SET utf8 COLLATE utf8_general_ci;

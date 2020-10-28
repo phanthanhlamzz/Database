@@ -1,0 +1,2 @@
+> REVOKE [type of permission] ON [database name].[table name] FROM ‘[username]’@‘your_ip’;
+vd : REVOKE SELECT, INSERT, UPDATE ON database-Name.* FROM 'userName'@'localhost';

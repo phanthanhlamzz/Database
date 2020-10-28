@@ -1,0 +1,3 @@
+> USE name-of-db;
+>
+> ex: USE mydb;

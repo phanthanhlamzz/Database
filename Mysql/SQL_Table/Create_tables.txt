@@ -1,0 +1,26 @@
+// create table
+CREATE TABLE table_name (
+    column1 datatype [constraint],
+    column2 datatype [constraint],
+    column3 datatype [constraint],
+   ....
+);
+ex:
+CREATE TABLE mytable (
+    id int unsigned NOT NULL auto_increment,
+    username varchar(100) NOT NULL,
+    email varchar(100) NOT NULL,
+    PRIMARY KEY(id));
+
+
+
+// copy table - Create Table Using Another Table
+CREATE TABLE new_table_name AS
+    SELECT column1, column2,...
+    FROM existing_table_name
+    WHERE ....;
+
+ex:
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;

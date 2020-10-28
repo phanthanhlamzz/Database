@@ -1,0 +1,1 @@
+- Khóa chính có thể được tạo từ việc kết hợp nhiều cột ví du : (mã sản phẩm + mã khách hàng + ngày đặt hàng) - thường áp dụng cho việc ghi nhớ hành vi lịch sử

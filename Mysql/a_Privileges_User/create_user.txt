@@ -1,0 +1,8 @@
+Creating user
+First, you need to create a user and then give the user permissions on certain databases/tables. While creating the user, you also need to specify where this user can connect from.
+
++CREATE USER 'user'@'localhost' IDENTIFIED BY 'some_password';
+ Will create a user that can only connect on the local machine where the database is hosted.
+
++CREATE USER 'user'@'%' IDENTIFIED BY 'some_password';
+ Will create a user that can connect from anywhere (except the local machine).

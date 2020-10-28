@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS Baseball; -- Drops a database if it exists, avoids Error 1008 DROP DATABASE xyz; -- If xyz does not exist, ERROR 1008 will occur
+Due to the above Error possibilities, DDL statements are often used with IF EXISTS.

@@ -1,0 +1,11 @@
+Set the currently active database, and see some information:
+USE name-db; -- set it as the current database
+vd : USE Baseball;
+
+SELECT @@character_set_database as cset,@@collation_database as col;
++------+-----------------+
+| cset | col             |
++------+-----------------+
+| utf8 | utf8_general_ci |
++------+-----------------+
+The above shows the default CHARACTER SET and Collation for the database.

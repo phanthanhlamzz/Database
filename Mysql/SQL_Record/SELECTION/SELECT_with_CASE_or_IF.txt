@@ -1,0 +1,21 @@
+SELECT st.name,st.percentage,
+CASE WHEN st.percentage >= 35 THEN 'Pass' ELSE 'Fail' END AS `Remark`
+FROM student AS st ;
+
+Result
++--------------------------------+
+|   name   | percentage | Remark |
++--------------------------------+
+|   Isha   |     67     |  Pass  |
+|   Rucha  |     28     |  Fail  |
+|   Het    |     35     |  Pass  |
+|   Ansh   |     92     |  Pass  |
++--------------------------------+
+
+Or with IF
+SELECT st.name, st.percentage, IF(st.percentage >= 35, 'Pass', 'Fail') AS `Remark`
+FROM student AS st ;
+
+
+IF(st.percentage >= 35, 'Pass', 'Fail')
+This means : IF st.percentage >= 35 is TRUE then return 'Pass' ELSE return 'Fail'

@@ -1,0 +1,10 @@
+SQL aliases are used to temporarily rename a table or a column. They are generally used to improve readability.
+Query:
+SELECT username AS val FROM stack;
++-------+
+| val   |
++-------+
+| admin |
+| stack |
++-------+
+2 rows in set (0.00 sec) 

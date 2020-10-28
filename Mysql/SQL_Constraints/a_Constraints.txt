@@ -1,0 +1,7 @@
+SQL constraints are used to specify rules for data in a table.
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);

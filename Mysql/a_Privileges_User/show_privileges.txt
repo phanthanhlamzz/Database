@@ -1,0 +1,3 @@
+GRANT ALL ON Baseball.* TO 'John123'@'%'; GRANT SELECT ON Baseball.* TO 'John456'@'%';
+Verify the above:
+SHOW GRANTS FOR 'John123'@'%';

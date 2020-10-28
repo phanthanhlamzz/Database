@@ -1,0 +1,7 @@
+This is the basic way to insert data from another table with the SELECT statement.
+INSERT INTO `tableA` (`field_one`, `field_two`)
+SELECT `tableB`.`field_one`, `tableB`.`field_two`   FROM `tableB`   WHERE `tableB`.clmn <> 'someValue'   ORDER BY `tableB`.`sorting_clmn`;
+
+You can SELECT * FROM, but then tableA and tableB must have matching column count and corresponding datatypes.
+Columns with AUTO_INCREMENT are treated as in the INSERT with VALUES clause.
+This syntax makes it easy to ﬁll (temporary) tables with data from other tables, even more so when the data is to be ﬁltered on the insert.

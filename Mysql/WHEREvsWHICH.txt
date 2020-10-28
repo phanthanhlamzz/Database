@@ -1,0 +1,8 @@
+SELECT b.id, b.name, count(ab.staffid) as number FROM building b
+left join assignmentbuilding ab on ab.buildingid = b.id
+group by b.id
+having number > 1;  // Không được sử dụng WHERE trong trường hợp này vì number không phải là cột trong bảng
+
+
+The  HAVING clause is used in the SELECT statement to specify filter conditions for a group of rows or aggregates.
+The HAVING clause is often used with the GROUP BY clause to filter groups based on a specified condition. If the GROUP BY clause is omitted, the HAVING clause behaves like the WHERE clause.

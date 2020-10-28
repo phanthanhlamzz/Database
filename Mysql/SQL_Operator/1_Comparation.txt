@@ -1,0 +1,15 @@
+=	Equal
+<=>	Equal (Safe to compare NULL values)
+<>	Not Equal
+!=	Not Equal
+>	Greater Than
+>=	Greater Than or Equal
+<	Less Than
+<=	Less Than or Equal
+IN ( )	Matches a value in a list
+NOT	Negates a condition
+BETWEEN	Within a range (inclusive)
+IS NULL	NULL value
+IS NOT NULL	Non-NULL value
+LIKE	Pattern matching with % and _
+EXISTS	Condition is met if subquery returns at least one row

@@ -1,0 +1,12 @@
+CREATE TABLE stack( id INT, username VARCHAR(30) NOT NULL, password VARCHAR(30) NOT NULL );
+INSERT INTO stack (`id`, `username`, `password`) VALUES (1, 'Foo', 'hiddenGem');
+INSERT INTO stack (`id`, `username`, `password`) VALUES (2, 'Baa', 'verySecret');
+Query
+SELECT id FROM stack;
+Result
++------+
+| id   |
++------+
+|    1 |
+|    2 |
++------+ 

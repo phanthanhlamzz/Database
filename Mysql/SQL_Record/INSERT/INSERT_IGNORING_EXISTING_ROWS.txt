@@ -1,0 +1,29 @@
+Ignoring existing rows
+When importing large datasets, it may be preferable under certain circumstances to skip rows that would usually cause the query to fail due to a column restraint
+e.g. duplicate primary keys. This can be done using INSERT IGNORE.
+Consider following example database:
+SELECT * FROM `people`;
+ --- Produces:
+ +----+------+
+ | id | name |
+ +----+------+
+ |  1 | john |
+ |  2 | anna |
+ +----+------+
+INSERT IGNORE INTO `people` (`id`, `name`) VALUES
+('2', 'anna'), --- Without the IGNORE keyword, this record would produce an error
+('3', 'mike');
+
+
+SELECT * FROM `people`;
+--- Produces:
++----+--------+
+| id |  name  |
++----+--------+
+|  1 |  john  |
+|  2 |  anna  |
+|  3 |  mike  |
++----+--------+
+The important thing to remember is that INSERT IGNORE will also silently skip other errors too, here is what Mysql oﬃcial documentations says:
+Data conversions that would trigger errors abort the statement if IGNORE is not > speciﬁed.
+With IGNORE, invalid values are adjusted to the closest values and >inserted; warnings are produced but the statement does not abort.

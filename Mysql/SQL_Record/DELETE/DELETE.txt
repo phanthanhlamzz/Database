@@ -1,0 +1,4 @@
+Basic Delete
+> DELETE FROM 'myTable' WHERE "filed"="value";
+or
+> DELETE FROM  'myTable'; // delete all rows

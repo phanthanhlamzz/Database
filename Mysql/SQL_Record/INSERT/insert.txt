@@ -1,0 +1,11 @@
+**************************************
+/Inserting a row into a MySQL table
+**************************************
+INSERT INTO mytable ( username, email ) VALUES ( "myuser", "myuser@example.com" );
+The varchar a.k.a strings can be also be inserted using single quotes: INSERT INTO mytable ( username, email ) VALUES ( 'username', 'username@example.com' );
+
+**************************************
+/Inserting many rows into a MySQL table
+**************************************
+
+INSERT INTO 'mytable' ( 'username', 'email' ) VALUES ( "myuser0", "myuser@example.com" ),( "myuser1", "myuser@example.com" ),( "myuser2", "myuser@example.com" );

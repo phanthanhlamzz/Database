@@ -1,0 +1,5 @@
+UPDATE products, salesOrders
+SET salesOrders.Quantity = salesOrders.Quantity - 5,
+products.availableStock = products.availableStock + 5
+WHERE products.productId = salesOrders.productId
+AND salesOrders.orderId = 100 AND salesOrders.productId = 20;

@@ -1,0 +1,4 @@
+Basic Update
+> UPDATE mytable SET name='new_name' WHERE id = 1;
+or
+> UPDATE mytable SET name='all';// set all rows

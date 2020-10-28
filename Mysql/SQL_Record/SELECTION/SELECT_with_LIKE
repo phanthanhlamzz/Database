@@ -1,0 +1,49 @@
+CREATE TABLE stack
+(id int AUTO_INCREMENT PRIMARY KEY, username VARCHAR(100) NOT NULL );
+INSERT stack(username) VALUES ('admin'),('k admin'),('adm'),('a adm b'),('b XadmY c'), ('adm now'), ('not here');
+
+"adm" anywhere:
+SELECT * FROM stack WHERE username LIKE "%adm%";
++----+-----------+
+| id | username  |
++----+-----------+
+|  1 | admin     |
+|  2 | k admin   |
+|  3 | adm       |
+|  4 | a adm b   |
+|  5 | b XadmY c |
+|  6 | adm now   |
++----+-----------+
+
+
+Begins with "adm":
+SELECT * FROM stack WHERE username LIKE "adm%";
++----+----------+
+| id | username |
++----+----------+
+|  1 | admin    |
+|  3 | adm      |
+|  6 | adm now  |
++----+----------+
+
+
+Ends with "adm":
+SELECT * FROM stack WHERE username LIKE "%adm";
++----+----------+
+| id | username |
++----+----------+
+|  3 | adm      |
++----+----------+
+Just as the % character in a LIKE clause matches any number of characters, the _ character matches just one character. For example,
+SELECT * FROM stack WHERE username LIKE "adm_n";
++----+----------+
+| id | username |
++----+----------+
+|  1 | admin    |
++----+----------+
+
+-LIKE 'adm' performs the same as `= 'adm'
+-LIKE 'adm% is a "range", similar to BETWEEN..AND.. It can make good use of an index on the column.
+-LIKE '%adm' (or any variant with a leading wildcard) cannot use any index. Therefore it will be slow. On tables with many rows, it is likely to be so slow it is useless.
+-RLIKE (REGEXP) tends to be slower than LIKE, but has more capabilities.
+-While MySQL oﬀers FULLTEXT indexing on many types of table and column, those FULLTEXT indexes are not used to fulﬁll queries using LIKE. 

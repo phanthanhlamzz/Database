@@ -1,0 +1,19 @@
+SELECT * FROM stack WHERE username = "admin" AND password = "admin";
+Result
++------+----------+----------+
+| id   | username | password |
++------+----------+----------+
+|    1 | admin    | admin    |
++------+----------+----------+
+1 row in set (0.00 sec)
+
+Query with a nested SELECT in the WHERE clause
+The WHERE clause can contain any valid SELECT statement to write more complex queries. This is a 'nested' query
+
+Query:
+Nested queries are usually used to return single atomic values from queries for comparisons.
+SELECT title FROM books WHERE author_id = (SELECT id FROM authors WHERE last_name = 'Bar' AND first_name = 'Foo');
+
+Selects all usernames with no email address
+SELECT * FROM stack WHERE username IN (SELECT username FROM signups WHERE email IS NULL);
+Disclaimer: Consider using joins for performance improvements when comparing a whole result set.

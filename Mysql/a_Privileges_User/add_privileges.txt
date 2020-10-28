@@ -1,0 +1,27 @@
+Adding privileges
+
+Grant common, basic privileges to the user for all tables of the speciﬁed database:
+GRANT SELECT, INSERT, UPDATE ON database-Name.* TO 'userName'@'localhost';
+
+Grant all privileges to the user for all tables on all databases (attention with this):
+GRANT ALL ON *.* TO 'userName'@'localhost' WITH GRANT OPTION;
+
+As demonstrated above, *.* targets all databases and tables, databaseName.* targets all tables of the speciﬁc database. It is also possible to specify database and table like so databaseName.tableName.
+WITH GRANT OPTION should be left out if the user need not be able to grant other users privileges.
+
+Privileges can be either
+ALL
+
+or a combination of the following, each separated by a comma (non-exhaustive list).
+SELECT
+INSERT
+UPDATE
+DELETE
+CREATE
+DROP
+
+
+NOTE:
+Saving Your Changes
+As a final step following any updates to the user privileges, be sure to save the changes by issuing the FLUSH PRIVILEGES command from the mysql prompt:
+mysql> FLUSH PRIVILEGES;

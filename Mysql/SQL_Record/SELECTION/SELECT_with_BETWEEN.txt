@@ -1,0 +1,12 @@
+Query with operators
+SELECT * FROM stack WHERE id >= 2 and id <= 5;
+Similar query with BETWEEN
+SELECT * FROM stack WHERE id BETWEEN 2 and 5;
+
+
+Using NOT BETWEEN
+If you want to use the negative you can use NOT. For example :
+SELECT * FROM stack WHERE id NOT BETWEEN 2 and 5;
+
+NOTE:
+If you have an index on a column you use in a BETWEEN search, MySQL can use that index for a range scan. 

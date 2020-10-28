@@ -1,0 +1,30 @@
+Query
+SELECT * FROM stack;
+Result
++------+----------+----------+
+| id   | username | password |
++------+----------+----------+
+|    1 | admin    | admin    |
+|    2 | stack    | stack    |
++------+----------+----------+
+2 rows in set (0.00 sec)
+You can select all columns from one table in a join by doing:
+SELECT stack.* FROM stack JOIN Overflow ON stack.id = Overflow.id;
+
+Best Practice Do not use * unless you are debugging or fetching the row(s) into associative arrays, otherwise schema changes (ADD/DROP/rearrange columns) can lead to nasty application errors.
+Also, if you give the list of columns you need in your result set, MySQL's query planner often can optimize the query.
+
+Pros:
+1. When you add/remove columns, you don't have to make changes where you did use SELECT *
+2. It's shorter to write
+3. You also see the answers, so can SELECT *-usage ever be justiﬁed?
+
+Cons:
+1. You are returning more data than you need. Say you add a VARBINARY column that contains 200k per row.
+2. You only need this data in one place for a single record - using SELECT * you can end up returning 2MB per 10 rows that you don't need Explicit about what data is used.
+3. Specifying columns means you get an error when a column is removed.
+4. The query processor has to do some more work - ﬁguring out what columns exist on the table (thanks @vinodadhikary)
+5.You can ﬁnd where a column is used more easily.
+6.You get all columns in joins if you use SELECT *
+7. You can't safely use ordinal referencing (though using ordinal references for columns is bad practice in itself)
+8. In complex queries with TEXT ﬁelds, the query may be slowed down by less-optimal temp table processing.

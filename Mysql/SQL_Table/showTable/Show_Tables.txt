@@ -1,0 +1,6 @@
+> SHOW TABLES; // show list of tables in the database
+> SHOW FULL TABLES; 
+
+> DESCRIBE name-of-tables; // show structrure of the tables (field,Type,...)
+> DESCRIBE name-db.name-tables;
+> ex : DECRIBE mydb;

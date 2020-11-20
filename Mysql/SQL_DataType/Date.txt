@@ -4,3 +4,11 @@ TIMESTAMP(fsp)	=> A timestamp. TIMESTAMP values are stored as the number of seco
 TIME(fsp)	=> A time. Format: hh:mm:ss. The supported range is from '-838:59:59' to '838:59:59'
 YEAR	=> A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000.
 MySQL 8.0 does not support year in two-digit format.
+
+
+Khác nhau giữa kiểu dữ liệu Datetime và Timestamp trong MySQL
+Kiểu dữ liệu DATETIME được sử dụng khi bạn cần lưu trữ cả hai thông tin ngày tháng và thời gian.MySQL lấy và hiển thị DATETIME theo định dạng  ‘YYYY-MM-DD HH:MM:SS’. Và hỗ trợ phạm vi từ '1000-01-01 00:00:00' tới '9999-12-31 23:59:59'.
+
+Kiểu dữ liệu TIMESTAMP cũng được sử dụng khi bạn muốn lưu trữ cả hai thông tin ngày tháng và thời gian. TIMESTAMP có phạm vi  '1970-01-01 00:00:01' UTC tới '2038-01-19 03:14:07' UTC
+
+Sự khác biệt chính của DATETIME và TIMESTAMP là giá trị của TIMESTAMP được chuyển đổi từ múi giờ hiện tại sang UTC trong khi lưu trữ, và chuyển ngược trở lại từ UTC sang múi giờ hiện tại trong lúc lấy ra. Còn kiểu dữ liệu DATETIME thì không có gì thay đổi.

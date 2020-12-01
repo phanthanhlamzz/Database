@@ -1,0 +1,49 @@
+create function udf_calculateAge
+(
+	@age int
+)
+returns  bit
+as
+begin
+	declare @allowBuyTicket bit;
+	if @age >= 20
+		set @allowBuyTicket  = 1;
+	else
+		set @allowBuyTicket = 0;
+	return @allowBuyTicket;
+end
+
+select * from
+(select *, dbo.udf_calculateAge(Age) as AllowBuyTicket from
+Student)
+ as a where AllowBuyTicket = 1
+
+
+create function dbo.udf_StudentAgeThan(
+@age int
+)
+returns table
+as
+return(
+	select * from Student where Age > @age
+)
+
+select * from dbo.udf_StudentAgeThan(10)
+
+
+--multi lines
+create function udf_GetNumerOfCustomerByCountry()
+returns @numberOfCustomerByCountry table
+(
+	Country nvarchar(50),
+	NumberOfCustomer int
+)
+as
+begin
+	insert into @numberOfCustomerByCountry
+	select Country,count(*) as NumberOfCustomer from Customers
+	group by Country
+	return
+end
+
+select * from udf_GetNumerOfCustomerByCountry();

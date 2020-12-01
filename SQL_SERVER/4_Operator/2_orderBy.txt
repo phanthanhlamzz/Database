@@ -1,0 +1,2 @@
+SELECT * FROM Customers ORDER BY Country CustomerName Desc;
+SELECT * FROM Customers ORDER BY Country asc, CustomerName Desc;

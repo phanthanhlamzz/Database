@@ -1,0 +1,23 @@
+SELECT expressions FROM table [WHERE Clause] + [GROUP BY CLAUSE] + [HAVING CLAUSE] + [ORDER BY Clause]
+
+SELECT DISTINCT country from customer;
+
+SELECT TOP 2 CustomerNAME FROM customers ORDER BY ContactName ASC/DESC;
+
+SELECT MIN(price) from Products;
+MAX(),COUNT(),SUM(),AVG()
+
+// nối 2 bản với nhau , loại bỏ record (tupple) trùng nhau
+SELECT * FROM Products
+UNION
+SELECT * FROM Products1
+// nối 2 bản với nhau , và lấy tất cả kể cả trùng nhau
+SELECT * FROM Products
+UNION ALL
+SELECT * FROM Products1
+
+
+SELECT ProductId,ISNULL(Unit,'không có') from Products1
+
+SELECT * FROM products WHERE Unit is null;
+SELECT * FROM products WHERE Unit is not null;

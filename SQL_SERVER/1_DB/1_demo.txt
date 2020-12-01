@@ -1,0 +1,31 @@
+-- Create New database
+CREATE DATABASE [sample]
+
+-- Delete Database
+DROP DATABASE [tedu]
+
+-- Rename Database
+ALTER DATABASE [sample] MODIFY NAME = [tedu]
+
+-- Using Database
+USE [sample]
+
+-- CREATE WITH OPTIONS
+CREATE DATABASE [sales]
+ON(
+	NAME= SALES_DATA,
+	FILENAME= 'c:\db\sales.mdf',
+	SIZE = 10MB,
+	MAXSIZE= 50MB,
+	FILEGROWTH= 5MB
+
+)
+LOG ON
+(
+	NAME= SALES_LOG,
+	FILENAME= 'c:\db\sales.ldf',
+	SIZE = 10MB,
+	MAXSIZE= 50MB,
+	FILEGROWTH= 5MB
+
+)

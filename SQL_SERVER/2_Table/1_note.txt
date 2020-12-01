@@ -1,0 +1,32 @@
+USE Tedu;
+
+-- create Table
+CREATE TABLE Student(
+	Id INT,
+	[Name] NVARCHAR(50),
+	Age INT,
+	DateOfBirth DATE,
+	Gender BIT
+);
+
+-- drop Table
+DROP TABLE Student;
+
+-- insert rows
+INSERT INTO Student(Id,Name,Age,DateOfBirth,Gender) VALUES (1,N'Nguyễn Văn A',20,'1990-09-13',1);
+INSERT INTO Student(Id,Name,Age,DateOfBirth,Gender) VALUES (2,N'Nguyễn Văn B',21,'1990-09-13',1);
+
+-- Select
+SELECT * FROM Student;
+SELECT TOP (1000) * FROM [TEDU].[dbo].[Student]
+
+-- Delete Table
+DELETE FROM Student WHERE Age > 20;
+DELETE FROM Student; // xóa hết dòng thui
+TRUNCATE TABLE Student; // xóa hết tất cả bao gồm  cả index
+
+-- Rename Table
+sp_rename 'Student','Student1'
+
+-- Copy Table
+SELECT * INTO Student1 FROM Student

@@ -1,0 +1,2 @@
+SELECT column FROM table WHERE column IN (Value1,value2,..);
+SELECT column FROM table WHERE column IN (SELECT STATEMENT);

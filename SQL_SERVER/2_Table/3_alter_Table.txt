@@ -1,0 +1,13 @@
+ALTER TABLE Student
+add Address NVARCHAR(50);
+
+ALTER TABLE Student
+ADD Province NVARCHAR(50),Districts NVARCHAR(50);
+
+ALTER TABLE Student
+DROP COLUMN Address;
+
+ALTER TABLE Student
+ALTER COLUMN Address NVARCHAR(50)
+
+sp_rename 'table [name].[old column name]','new column name','COLUMN';

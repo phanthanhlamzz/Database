@@ -1,0 +1,4 @@
+SELECT c1.CustomerName as Name1 , c2.CustomerName as Name2 FROM
+Customers c1,Customers c2
+WHERE c1.City = c2.city AND c1.CustomerId != c2.CustomerId
+order by Name1

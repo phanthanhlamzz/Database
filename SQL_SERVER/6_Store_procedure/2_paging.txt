@@ -1,0 +1,19 @@
+create proc GetStudentPaging
+@pageIndex int,
+@pageSize int,
+@totalRow int output
+as
+  begin
+  set nocount On;
+  select @totalRow = count(*) from Student
+    select * From(
+    select RowNumber = Row_number() over
+    (order by Name),* FROM Student
+    ) as A
+    WHERE RowNumber > (@pageSize * (@pageIndex-1))
+    AND RowNumber <= (@pageSize * (@pageIndex-1)) + @pageSize
+  end
+
+declare @totalRow int
+exec GetStudentPaging 1,2,@totalRow output
+select @totalRow

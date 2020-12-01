@@ -1,0 +1,15 @@
+## Local Temp Variable
+-> Local temp Tables are only available at current connect time. it is automatically deleted when user disconnects from
+instances
+code:
+CREATE TABLE #tableName(
+  id INT,
+  name VARCHAR(50),
+)
+
+## Global Temp Variable
+-> Global temp tables are always ready for all users and not deleted until the total connection is withdrawn
+CREATE TABLE ##tableName(
+  id INT,
+  name VARCHAR(50),
+)

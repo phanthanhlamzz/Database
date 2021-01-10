@@ -1,0 +1,29 @@
+postgres
+root
+# Install PostgreSql + set up En.Variable (/bin)
+defalt U : postgres -> $ psql -U postgres (login with username being postgres)
+
+# Command in PostgreSQL
+- $ \help 
+- $ \l  (show db list)
+- set lc_monetary to "vi_VN";
+- set timezone to 'Europe/Paris';
+- $ \dt (show list of Tables )
+
+# Create DB
+- CREATE DATABASE example_db WITH OWNER = 'postgres' ENCODING='UTF8' LC_COLLATE = 'vi_VN.UTF-8' LC_CTYPE = 'vi_VN.UTF-8' LC_MONETARY = 'vi_VN.UTF-8' TEMPLATE = template0;	
+  LC_MONETARY = 'vi_VN.UTF-8'
+
+# Select DB
+- $ \c testdb;
+
+#DROP DB
+- DROP DATABASE [ IF EXISTS ] name
+
+# Create Table
+
+# Drop Table
+- DROP TABLE time,location,sales,product;
+
+# UUID (su dung)
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; // them extension 
